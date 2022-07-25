@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminKategoriController;
 use App\Http\Controllers\Admin\AdminProdukController;
+use App\Http\Controllers\Admin\AdminCustomerController;
 
 use App\Http\Controllers\User\UserLoginController;
 use App\Http\Controllers\User\UserRegisterController;
@@ -38,6 +39,11 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('/')->name('dashboard.')->group(function () {
         Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
     }); 
+
+    Route::prefix('datacustomer')->name('datacustomer.')->group(function () {
+        Route::get('/', [AdminCustomerController::class, 'index'])->name('index');
+        Route::get('/show/{id}', [AdminCustomerController::class, 'show'])->name('show');
+    });
 
     Route::prefix('datakategori')->name('datakategori.')->group(function () {
         Route::get('/', [AdminKategoriController::class, 'index'])->name('index');
