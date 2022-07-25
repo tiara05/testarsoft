@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('id_user');
             $table->index('id_user');
             $table->integer('jumlah');
+            $table->string('status')->default('Mau Beli');
             $table->timestamps();
         });
     }
